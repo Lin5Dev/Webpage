@@ -3,7 +3,23 @@
 body {
   margin: 0;
   background-color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+body.light-mode {
+  background-color: #205e47; /* Light background for entire page */
+  color: #1a1a1a;            /* Dark text */
+}
+
+body.light-mode .top,
+body.light-mode .bottom {
+  background-color: #205e47; /* Light replacement for black sections */
+}
+
+body.light-mode .white {
+  background-color: #c1c1c1; /* Light replacement for white sections */
+}
+
+
 /* Make sure to reset default margins */
 * {
   margin: 0;
@@ -19,6 +35,48 @@ body {
 .section {
   width: 100vw;               /* full viewport width */
   height: 110vh;              /* 120% of screen height (slightly longer than a screen) */
+}
+
+.switch {
+  position: absolute;
+  top: 35px;     /* distance from top */
+  right: 80px;   /* distance from right */
+  z-index: 100;  /* make sure it's above background elements */
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 25px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #333;
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
 }
 
 /* Top and Bottom: black background */
@@ -79,6 +137,9 @@ body {
   transform: scaleY(1);
 }
 
+.top, .bottom, .white {
+  transition: background-color 0.5s ease;
+}
 
 /* Middle: white background */
 .white {
