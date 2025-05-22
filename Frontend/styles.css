@@ -86,6 +86,23 @@ input:checked + .slider::before {
   background-color: black;
   display: flex; 
 }
+/*home page csu logo*/
+#logo-link {
+  position: absolute;      /*stays in the corner even when scrolling */
+  top: 30px;
+  left: 40px;
+  z-index: 200;         /* stays above other elements */
+}
+#site-logo {
+  width: 80px;          /* adjust size as needed */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+#site-logo:hover {
+  transform: scale(1.05);  /* optional hover effect */
+}
+
 .Tleft,.Tright {
   width: 50%;
   height: 100%;
