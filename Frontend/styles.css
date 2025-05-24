@@ -34,7 +34,9 @@ body {
 /* Shared section styles */
 .section {
   width: 100vw;               /* full viewport width */
-  height: 110vh;              /* 120% of screen height (slightly longer than a screen) */
+               /* 120% of screen height (slightly longer than a screen) */
+  margin: 0;
+  padding: 60px 0;
 }
 
 .switch {
@@ -161,6 +163,40 @@ input:checked + .slider::before {
 /* Middle: white background */
 .white {
   background-color: white;
+  height: 120vh;
+}
+
+.dimmed {
+  filter: grayscale(50%) brightness(60%);
+  transition: filter 0.3s ease;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.image-container img {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.3s, border 0.3s;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+  border: 2px solid #000000;
+}
+
+.hover-text {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #000000;
+  min-height: 24px;
 }
 
 .bottom {
